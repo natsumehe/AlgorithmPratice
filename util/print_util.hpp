@@ -7,11 +7,10 @@
 template <typename T>
 void printArray(const T* arr, size_t size) {
     cout << "[";
-    for(int i{}); i < size; i++) {
+    for(int i{}; i < size; i++) {
         cout << arr[i];
-        if(i != size -i){
-            cout << ",";
+        if(i == size){
+            cout << "]";
         }
     }
-}
-
+}      
