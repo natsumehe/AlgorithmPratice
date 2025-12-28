@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "list_node.hpp"
+#include "tree_list.hpp"
 
 using namespace std;
 
@@ -50,3 +51,16 @@ void printMatrix(const T** matrix, size_t rows, size_t cols) {
     }
     cout << "]" << endl;
 }
+
+/// @brief 前序遍历打印二叉树
+/// @param root 
+template <typename T>
+void preorderPrint(TreeNode* root) {
+    if (!root) {
+        std::cout << "null ";
+        return;
+    }
+    std::cout << root->val << " ";
+    preorderPrint(root->left);
+    preorderPrint(root->right);
+};
