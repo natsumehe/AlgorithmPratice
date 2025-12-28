@@ -69,4 +69,51 @@ class Tree{
         deletNode (root->right);
         delete root;
     }
+
+    // 递归实现
+    /// @brief 前序遍历
+    /// @param root 
+    /// @param res 
+    void preorderRec(TreeNode* root, vector<int> &res){
+        if(!root) return;
+        res.back(root->val);
+        preorderPrint(root->left, res);
+        preorderPrint(root->right, res);
+    }
+
+    /// @brief 中序遍历
+    /// @param root 
+    /// @param res 
+    void inorderRec(TreeNode* root, vector<int> &res){
+        if(!root) return;
+        inorderPrint(root->left, res);
+        res.back(root->val);
+        inorderPrint(root->right, res);
+    }
+
+    /// @brief 后序遍历
+    /// @param root 
+    /// @param res 
+    void postorderRec(TreeNode* root, vector<int> &res){
+        if(!root) return;
+        postorderPrint(root->left, res);
+        postorderPrint(root->right, res);
+        res.back(root->val);
+    }
+
+    //迭代
+    /// @brief 前序遍历
+    /// @param root 
+    void preorderiter(TreeNode* root){
+        if(!root) return;
+        vector<int> &res ,stack<TreeNode*> &s;
+        s.push(root);
+        while(!s.empty()){
+            TreeNode* node = s.top(); s.pop();
+            res.push_back(node->val);
+            if(node->left) s.push(node->left);
+            if(node->right) s.push(node->right);
+        }
+        return res;
+    }
 };
