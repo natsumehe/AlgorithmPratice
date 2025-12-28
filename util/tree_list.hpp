@@ -116,4 +116,53 @@ class Tree{
         }
         return res;
     }
+
+    /// @brief 中序遍历
+    /// @param root 
+    void inorderiter(TreeNode* root){
+        if(!root) return;
+        vector<int> &res;
+        stack<int> &s;
+        TreeNode curr = root;
+        while(curr || !s.empty()){
+            while(curr){
+                s.push(curr);
+                curr = curr->left;
+            }
+            curr = s.top();
+            s.pop();
+            res.push_back(curr->val);
+            curr = curr->right;
+        }
+        return res;
+    }
+
+    /// @brief 后序遍历
+    /// @param root 
+    void postorderiter(TreeNode* root){
+        if(!root) return;
+        vector<int> &res;
+        stack<int> & s;
+        TreeNode* curr = root;
+        TreeNode* lastVistied = nullptr;
+        while(!s.empty() || curr){
+            if(curr) {
+                s.push(curr);
+                curr = curr->left;
+            }else{
+                TreeNode* peek = s.top();
+                if(peek->right && lastVistied != peek->right){
+                    curr = peek->right;
+                }else{
+                    res.push_back(peek->val);
+                    lastVistied = peek;
+                    s.pop();
+                }
+
+            }
+
+        }
+        return res;
+    }
+
 };
