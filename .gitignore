@@ -2,9 +2,7 @@
 ./vscode/
 .vscode/*
 
-# Ignore everything in DoublePointer_linklist except .cc files
-/DoublePointer_linklist/*
-!/DoublePointer_linklist/*.cc
-!/DoublePointer_linklist/*.md
-
-
+# Ignore everything in linked_list except .cc files
+/linked_list/*
+!/linked_list/*.cc
+!/linked_list/*.md
