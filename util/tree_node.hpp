@@ -140,6 +140,28 @@ public:
         return res;
     }
 
+    //层序遍历--迭代
+    static void levelorder(TreeNode* root, std::vector<int>& res) {
+        if(root == nullptr) return ;
+        
+        std::queue<TreeNode*> q;
+        q.push(root);
+
+        while(!q.empty()){
+            TreeNode* current = q.front();
+            q.pop();
+
+            res.push_back(current -> val);
+
+            if(current->left){
+                q.push(current -> left);
+            }
+            if(current->right){
+                q.push(current -> right);
+            }
+        }
+    }
+
 
     // ========== 递归遍历（简洁，用于对比） ==========
 
@@ -163,5 +185,4 @@ public:
         postorderRec(root->right, res);
         res.push_back(root->val);
     }
->>>>>>> 17f9cea (:recycle: chore: 二叉树相关重构和代码修改)
 };
