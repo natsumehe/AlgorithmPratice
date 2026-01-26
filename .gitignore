@@ -10,3 +10,4 @@
 /binary_tree/*
 !/binary_tree/*.cc
 !/binary_tree/*.md
+!/binary_tree/*.py
